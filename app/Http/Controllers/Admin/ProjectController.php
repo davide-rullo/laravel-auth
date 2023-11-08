@@ -14,7 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::orderByDesc('id')->paginate(5);
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -38,7 +39,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        dd($project);
     }
 
     /**
