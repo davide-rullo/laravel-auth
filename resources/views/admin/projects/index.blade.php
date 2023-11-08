@@ -1,7 +1,19 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Projects</h1>
+
+@if (session('message'))
+<div class="alert alert-success alert-dismissible fade show pt-5" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {{session('message')}}
+</div>
+@endif
+
+
+
+
+
+<h1 class="pt-5">Projects</h1>
 
 <div class="table-responsive">
     <table class="table table-primary">
