@@ -55,7 +55,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        dd($project);
+
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -63,7 +64,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -71,7 +72,18 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+
+        $valid_data = $request->validated();
+
+        if ($request->has('cover_image')) {
+            $path = Storage::put('projects_images', $request->cover_image);
+            $valid_data['cover_image'] = $path;
+        }
+
+        $project->update($valid_data);
+
+
+        return to_route('admin.projects.index')->with('message', 'Project modified successfully');
     }
 
     /**

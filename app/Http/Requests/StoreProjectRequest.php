@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::id() === 1;
     }
 
     /**
@@ -25,7 +26,6 @@ class StoreProjectRequest extends FormRequest
             'title' => ['required', 'min:3'],
             'cover_image' => ['nullable'],
             'description' => ['nullable']
-
         ];
     }
 }

@@ -15,46 +15,52 @@
 
 <h1 class="pt-5">Projects</h1>
 
-<div class="table-responsive">
-    <table class="table table-primary">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Image</th>
-                <th scope="col">Title</th>
-                <th scope="col">Actions</th>
-
-            </tr>
-        </thead>
-        <tbody>
-
-            @forelse ($projects as $project)
-            <tr class="">
-                <td scope="row">{{$project->id}}</td>
+<a href="{{route('admin.projects.create')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add new project</a>
 
 
-                <td>
-                    @if ($project->cover_image)
-                    <img width="100" src="{{asset('storage/' . $project->cover_image)}}">
-                    @else
-                    N/A
-                    @endif
-                </td>
-                <td>{{$project->title}}</td>
-                <td>View Edit Delete</td>
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Actions</th>
 
-            </tr>
+        </tr>
+    </thead>
+    <tbody>
 
-            @empty
-            <tr class="">
-                <td scope="row">No projects yet!</td>
-            </tr>
-            @endforelse
+        @forelse ($projects as $project)
+        <tr class="">
+            <td scope="row">{{$project->id}}</td>
 
-            {{$projects->links('pagination::bootstrap-5')}}
 
-        </tbody>
-    </table>
+            <td>
+                @if ($project->cover_image)
+                <img width="100" src="{{asset('storage/' . $project->cover_image)}}">
+                @else
+                N/A
+                @endif
+            </td>
+            <td>{{$project->title}}</td>
+            <td> <a href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-file-pen"></i></a>
+                Delete
+            </td>
+
+        </tr>
+
+        @empty
+        <tr class="">
+            <td scope="row">No projects yet!</td>
+        </tr>
+        @endforelse
+
+        {{$projects->links('pagination::bootstrap-5')}}
+
+    </tbody>
+</table>
+
 </div>
 
 
