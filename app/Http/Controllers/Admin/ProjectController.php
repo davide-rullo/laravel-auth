@@ -80,6 +80,12 @@ class ProjectController extends Controller
             $valid_data['cover_image'] = $path;
         }
 
+        //soluzione per problema slug
+        if (!Str::is($project->getOriginal('title'), $request->title)) {
+
+            $valid_data['slug'] = $project->generateSlug($request->title);
+        }
+
         $project->update($valid_data);
 
 
