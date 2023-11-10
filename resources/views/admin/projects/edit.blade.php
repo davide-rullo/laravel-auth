@@ -47,6 +47,17 @@
     <div class="text-danger">{{$message}}</div>
     @enderror
 
+
+    <div class="mb-3">
+        <label for="github_link" class="form-label">github_link</label>
+        <input type="text" name="github_link" id="github_link" class="form-control @error('github_link') is-invalid @enderror " placeholder="Add your project github_link" aria-describedby="helpId" value="{{old('github_link')}}">
+        <small id="helpgithub_link" class="text-muted">Help text</small>
+    </div>
+
+    @error('github_link')
+    <div class="text-danger">{{$message}}</div>
+    @enderror
+
     <button class="btn btn-primary" type="submit">Update</button>
 
 </form>

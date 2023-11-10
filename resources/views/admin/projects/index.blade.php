@@ -24,6 +24,7 @@
             <th scope="col">ID</th>
             <th scope="col">Image</th>
             <th scope="col">Title</th>
+            <th scope="col">Github Link</th>
             <th scope="col">Actions</th>
 
         </tr>
@@ -43,6 +44,7 @@
                 @endif
             </td>
             <td>{{$project->title}}</td>
+            <td>{{$project->github_link}}</td>
             <td> <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
                 <a class="btn btn-secondary btn-sm" href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-file-pen"></i></a>
 
