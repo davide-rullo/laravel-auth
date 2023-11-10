@@ -61,6 +61,17 @@
     @enderror
 
 
+    <div class="mb-3">
+        <label for="online_link" class="form-label">online_link</label>
+        <input type="text" name="online_link" id="online_link" class="form-control @error('online_link') is-invalid @enderror " placeholder="Add your project online_link" aria-describedby="helpId" value="{{old('online_link')}}">
+        <small id="helponline_link" class="text-muted">Help text</small>
+    </div>
+
+    @error('online_link')
+    <div class="text-danger">{{$message}}</div>
+    @enderror
+
+
     <button class="btn btn-primary" type="submit">Create</button>
 
 </form>

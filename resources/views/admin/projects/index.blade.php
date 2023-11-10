@@ -44,7 +44,11 @@
                 @endif
             </td>
             <td>{{$project->title}}</td>
-            <td>{{$project->github_link}}</td>
+            <td><a class="card-link pe-3" href="{{$project->github_link}}" target=”_blank”><i class="fa-brands fa-square-github fa-lg"></i></a>
+                <a class="card-link" href="{{$project->online_link}}" target=”_blank”><i class="fa-solid fa-globe"></i></a>
+            </td>
+
+
             <td> <a class="btn btn-primary btn-sm" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
                 <a class="btn btn-secondary btn-sm" href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-file-pen"></i></a>
 

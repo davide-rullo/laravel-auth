@@ -27,7 +27,9 @@ class UpdateProjectRequest extends FormRequest
             'title' => ['required', 'min:3', Rule::unique('projects')->ignore($this->project)],
             'cover_image' => ['nullable'],
             'description' => ['nullable'],
-            'github_link' => ['nullable']
+            'github_link' => ['nullable'],
+            'online_link' => ['nullable']
+
         ];
     }
 }
